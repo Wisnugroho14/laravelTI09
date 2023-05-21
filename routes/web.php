@@ -36,5 +36,5 @@ Route::get('/form', [FormController::class, 'index']);
 Route::post('/hasil', [FormController::class, 'store']);
 
 Route::get('/kesehatan', function () {
-    return view ('kesehatan.form');
+    return view ('kesehatan.formkesehatan');
 });
