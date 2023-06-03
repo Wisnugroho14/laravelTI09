@@ -13,16 +13,16 @@
                 <td>{{ $data->nama }}</td>
               </tr>
               <tr>
-                <td>Tempat Tanggal Lahir</td>
-                <td>{{ $data->ttl }}</td>
+                <td>tanggal Pemeriksaan</td>
+                <td>{{ $data->tanggal_pemeriksaan }}</td>
+              </tr>
+              <tr>
+                <td>Tanggal Lahir/Usia</td>
+                <td>{{ $data->tanggal_lahir }}</td>
               </tr>
               <tr>
                 <td>Jenis Kelamin</td>
-                <td>{{ $data->jenis_kelamin}}</td>
-              </tr>
-              <tr>
-                <td>hobi</td>
-                <td>{{ $data->hobi }}</td>
+                <td>{{ $data->jenis_kelamin }}</td>
               </tr>
           </div>
         </div>

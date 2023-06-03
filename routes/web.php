@@ -5,6 +5,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\FormInputController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\FrontendController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +43,19 @@ Route::get('/kesehatan', function () {
     return view ('kesehatan.formkesehatan');
 });
 
+//Praktikum 9
 Route::get('/praktikum9', [FormInputController::class, 'index']);
 Route::get('/praktikum9', [FormInputController::class, 'array']);
 Route::post('/hasilprak9', [FormInputController::class, 'hasil']);
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/produk', [ProdukController::class, 'index']);
+// Route::prefix('admin')->group(function () {
+//     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//     Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+// });
+
+//Praktikum 10
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+
+Route::get('/home', [FrontendController::class, 'index'])->name('home');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
