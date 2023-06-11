@@ -6,6 +6,8 @@ use App\Http\Controllers\FormInputController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\KategoriProdukController;
+use App\Http\Controllers\PesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,9 +55,14 @@ Route::post('/hasilprak9', [FormInputController::class, 'hasil']);
 //     Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
 // });
 
-//Praktikum 10
+//Praktikum 10 CRUD
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('/produk/create', [ProdukController::class, 'create'])->name('produk');
+Route::post('/produk/store', [ProdukController::class, 'store'])->name('produk');
+Route::get('/kategori', [KategoriProdukController::class, 'index'])->name('kategori');
+Route::get('/pesanan', [PesananController::class, 'index'])->name('pesanan');
 
+//Praktikum Membuat halaman depan
 Route::get('/home', [FrontendController::class, 'index'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');

@@ -1,7 +1,7 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
-<h1 class="mt-4">Tables Produk</h1>
+<h1 class="mt-4">Tables Kategori Produk</h1>
 <ol class="breadcrumb mb-4">
   <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
   <li class="breadcrumb-item active">Tables</li>
@@ -17,51 +17,30 @@
 <div class="card mb-4">
   <div class="card-header">
     <!-- <i class="fas fa-table me-1"></i> -->
-    <a class="btn btn-success" href="{{url('produk/create')}}">Create Produk</a>
+    <a class="btn btn-success" href="index.php?hal=table_produk/form_produk">Create Produk</a>
   </div>
   <div class="card-body">
     <table id="datatablesSimple">
       <thead>
         <tr>
           <th>No</th>
-          <th>Kode</th>
           <th>Nama</th>
-          <th>Harga Jual</th>
-          <th>Harga Beli</th>
-          <th>Stok</th>
-          <th>Min Stok</th>
-          <th>Deskripsi</th>
-          <th>Kategori Produk</th>
           <th>Action</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
           <th>No</th>
-          <th>Kode</th>
           <th>Nama</th>
-          <th>Harga Jual</th>
-          <th>Harga Beli</th>
-          <th>Stok</th>
-          <th>Min Stok</th>
-          <th>Deskripsi</th>
-          <th>Kategori Produk</th>
           <th>Action</th>
         </tr>
       </tfoot>
       <tbody>
         @php $no = 1; @endphp
-        @foreach($produk as $p)
+        @foreach($kategori_produk as $k)
         <tr>
           <td>{{$no++}}</td>
-          <td>{{$p->kode}}</td>
-          <td>{{$p->nama}}</td>
-          <td>{{$p->harga_jual}}</td>
-          <td>{{$p->harga_beli}}</td>
-          <td>{{$p->stok}}</td>
-          <td>{{$p->min_stok}}</td>
-          <td>{{$p->deskripsi}}</td>
-          <td>{{$p->kategori_produk_id}}</td>
+          <td>{{$k->nama}}</td>
           <td>
             <a class="btn btn-primary" href="">View</a>
             <a class="btn btn-primary" href="">Edit</a>

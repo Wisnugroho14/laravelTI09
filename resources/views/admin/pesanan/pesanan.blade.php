@@ -1,7 +1,7 @@
 @extends('admin.layout.appadmin')
 @section('content')
 
-<h1 class="mt-4">Tables Produk</h1>
+<h1 class="mt-4">Tables Pesanan</h1>
 <ol class="breadcrumb mb-4">
   <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
   <li class="breadcrumb-item active">Tables</li>
@@ -17,51 +17,51 @@
 <div class="card mb-4">
   <div class="card-header">
     <!-- <i class="fas fa-table me-1"></i> -->
-    <a class="btn btn-success" href="{{url('produk/create')}}">Create Produk</a>
+    <a class="btn btn-success" href="index.php?hal=table_produk/form_produk">Create Pesanan</a>
   </div>
   <div class="card-body">
     <table id="datatablesSimple">
       <thead>
         <tr>
           <th>No</th>
-          <th>Kode</th>
-          <th>Nama</th>
-          <th>Harga Jual</th>
-          <th>Harga Beli</th>
-          <th>Stok</th>
-          <th>Min Stok</th>
+          <th>Tanggal</th>
+          <th>Nama Pemesan</th>
+          <th>Alamat</th>
+          <th>No Hp</th>
+          <th>Email</th>
+          <th>Jumlah Pesanan</th>
           <th>Deskripsi</th>
-          <th>Kategori Produk</th>
+          <th>Produk Id</th>
           <th>Action</th>
         </tr>
       </thead>
       <tfoot>
         <tr>
           <th>No</th>
-          <th>Kode</th>
-          <th>Nama</th>
-          <th>Harga Jual</th>
-          <th>Harga Beli</th>
-          <th>Stok</th>
-          <th>Min Stok</th>
+          <th>Tanggal</th>
+          <th>Nama Pemesan</th>
+          <th>Alamat</th>
+          <th>No Hp</th>
+          <th>Email</th>
+          <th>Jumlah Pesanan</th>
           <th>Deskripsi</th>
-          <th>Kategori Produk</th>
+          <th>Produk Id</th>
           <th>Action</th>
         </tr>
       </tfoot>
       <tbody>
         @php $no = 1; @endphp
-        @foreach($produk as $p)
+        @foreach($pesanan as $p)
         <tr>
           <td>{{$no++}}</td>
-          <td>{{$p->kode}}</td>
-          <td>{{$p->nama}}</td>
-          <td>{{$p->harga_jual}}</td>
-          <td>{{$p->harga_beli}}</td>
-          <td>{{$p->stok}}</td>
-          <td>{{$p->min_stok}}</td>
+          <td>{{$p->tanggal}}</td>
+          <td>{{$p->nama_pemesan}}</td>
+          <td>{{$p->alamat_pemesan}}</td>
+          <td>{{$p->no_hp}}</td>
+          <td>{{$p->email}}</td>
+          <td>{{$p->jumlah_pesanan}}</td>
           <td>{{$p->deskripsi}}</td>
-          <td>{{$p->kategori_produk_id}}</td>
+          <td>{{$p->nama_produk}}</td>
           <td>
             <a class="btn btn-primary" href="">View</a>
             <a class="btn btn-primary" href="">Edit</a>

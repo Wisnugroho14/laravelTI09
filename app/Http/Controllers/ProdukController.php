@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
+use App\Models\KategoriProduk;
+// use DB;
+use Illuminate\Support\Facades\DB;
 
 class ProdukController extends Controller
 {
@@ -11,8 +15,15 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.produk.produk');
+        // $kategori_produk = KategoriProduk::all();
+        //perintah ini menggunakan eloquent
+        // $kategori_produk = DB::table('kategori_produk')->get();
+        //perintah diatas menggunakan query builder
+        $produk = DB::table('produk')
+            ->join('kategori_produk', 'produk.kategori_produk_id', '=', 'kategori_produk_id')
+            ->select('produk.*', 'kategori_produk.nama as nama_kategori')
+            ->get();
+        return view('admin.produk.produk', compact('produk'));
     }
 
     /**
@@ -21,6 +32,10 @@ class ProdukController extends Controller
     public function create()
     {
         //
+        $kategori_produk = DB::table('kategori_produk')->get();
+        $produk = DB::table('produk')->get();
+
+        return view('admin.produk.create', compact('produk', 'kategori_produk'));
     }
 
     /**
@@ -29,6 +44,17 @@ class ProdukController extends Controller
     public function store(Request $request)
     {
         //
+        $produk = new Produk;
+        $produk->kode = $request->kode;
+        $produk->nama = $request->nama;
+        $produk->harga_jual = $request->harga_jual;
+        $produk->harga_beli = $request->harga_beli;
+        $produk->stok = $request->stok;
+        $produk->min_stok = $request->min_stok;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->kategori_produk_id = $request->kategori_produk_id;
+        $produk->save();
+        return redirect('produk');
     }
 
     /**
