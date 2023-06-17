@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Pesan extends Model
 {
@@ -11,6 +12,7 @@ class Pesan extends Model
     //memanggil table yg akan dikelola
     protected $table = 'pesanan';
     //mendeklarasikan kolom yg ada di dalam table
+    public $timestamps = false;
     protected $fillable = [
         'tanggal',
         'nama_pemesan',

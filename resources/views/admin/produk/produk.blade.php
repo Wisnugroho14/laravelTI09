@@ -63,9 +63,9 @@
           <td>{{$p->deskripsi}}</td>
           <td>{{$p->kategori_produk_id}}</td>
           <td>
-            <a class="btn btn-primary" href="">View</a>
-            <a class="btn btn-primary" href="">Edit</a>
-            <a class="btn btn-primary" href="" onclick="if(!confirm('Anda Yakin Hapus Data Produk ?')) {return false}">Delete</a>
+            <a class="btn btn-primary" href="{{ url('produk/view/' . $p->id) }}">View</a>
+            <a class="btn btn-warning" href="{{ url('produk/edit/' . $p->id) }}">Edit</a>
+            <a class="btn btn-primary" href="{{ url('produk/delete/' . $p->id) }}" onclick="if(!confirm('Anda Yakin Hapus Data Produk ?')) {return false}">Delete</a>
           </td>
         </tr>
         @endforeach
